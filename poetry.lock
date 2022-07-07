@@ -242,7 +242,7 @@ python-versions = "*"
 
 [[package]]
 name = "debugpy"
-version = "1.6.1"
+version = "1.6.2"
 description = "An implementation of the Debug Adapter Protocol for Python"
 category = "main"
 optional = false
@@ -284,9 +284,8 @@ python-versions = "*"
 spacy = ">=3.3.0.dev0,<3.4.0"
 
 [package.source]
-type = "file"
-url = "packages/en_core_web_sm-3.3.0-py3-none-any.whl"
-
+type = "url"
+url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.3.0/en_core_web_sm-3.3.0-py3-none-any.whl"
 [[package]]
 name = "entrypoints"
 version = "0.4"
@@ -341,7 +340,7 @@ pyflakes = ">=2.4.0,<2.5.0"
 
 [[package]]
 name = "fonttools"
-version = "4.34.3"
+version = "4.34.4"
 description = "Tools to manipulate font files"
 category = "main"
 optional = false
@@ -1645,7 +1644,7 @@ notebook = ">=4.4.1"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "1a16a705d51d7ee13e44aa2e8973b44d421584aa09dd78fab7b1a7807ec474b6"
+content-hash = "729eb3fdf0a3e62d9e8441bb61ea55023b40b40532cbfa61ef9df1e0667fb1d8"
 
 [metadata.files]
 appnope = [
@@ -1904,26 +1903,7 @@ cymem = [
     {file = "cymem-2.0.6-cp39-cp39-win_amd64.whl", hash = "sha256:c59293b232b53ebb47427f16cf648e937022f489cff36c11d1d8a1f0075b6609"},
     {file = "cymem-2.0.6.tar.gz", hash = "sha256:169725b5816959d34de2545b33fee6a8021a6e08818794a426c5a4f981f17e5e"},
 ]
-debugpy = [
-    {file = "debugpy-1.6.1-cp310-cp310-macosx_10_15_universal2.whl", hash = "sha256:dea24307e6899ab884e3b9186f325b9f83cb46ba7d770575abfd4da555b310af"},
-    {file = "debugpy-1.6.1-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:f8ab446c75113d43fdeaaa295cce5a2916ae3ddb24afebd18787a6c2d9b5adb9"},
-    {file = "debugpy-1.6.1-cp310-cp310-win32.whl", hash = "sha256:f781f403940c82ac29ccad4705cd3970294c5a3c4eea5e45a9c651564d34b3f3"},
-    {file = "debugpy-1.6.1-cp310-cp310-win_amd64.whl", hash = "sha256:b63d8feaa2215545418a94df768589e35550e5f8daa94daf7cdbe4a9a8123db7"},
-    {file = "debugpy-1.6.1-cp37-cp37m-macosx_10_15_x86_64.whl", hash = "sha256:5b38c0a9930ea7140a968b33f7ce55c3861e47bef26ba6ef36e477853c983b27"},
-    {file = "debugpy-1.6.1-cp37-cp37m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:43eaed06ead05de1eba321c7189c42ee6811cc4f55bd6d3dbc89285d9edf663c"},
-    {file = "debugpy-1.6.1-cp37-cp37m-win32.whl", hash = "sha256:6ef57c6f8c6299c54689e112782e40af2783958b6b6eb81a627d33913c658259"},
-    {file = "debugpy-1.6.1-cp37-cp37m-win_amd64.whl", hash = "sha256:1bce0aa8960a449e759cd2c6394b95f1271a09a15371116eb0d6383d1bed1d6e"},
-    {file = "debugpy-1.6.1-cp38-cp38-macosx_10_15_x86_64.whl", hash = "sha256:1beee50ec98e967b964ac96716cc02cca2c19ca4b848be79469135e403fb9ed2"},
-    {file = "debugpy-1.6.1-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:a1ffad8691686fd3306e44533a02e334c4b9c8fd10ac13829a937d7bb02c9fc3"},
-    {file = "debugpy-1.6.1-cp38-cp38-win32.whl", hash = "sha256:aa886a30ed75ee1b126053e6536b41e5ac7be8fdb2bc67660cfeb6bdbab3da37"},
-    {file = "debugpy-1.6.1-cp38-cp38-win_amd64.whl", hash = "sha256:3917b4ffc34a6768ce9d5b43d971f0714f4604d479255f56c4be061aa7f9731e"},
-    {file = "debugpy-1.6.1-cp39-cp39-macosx_10_15_x86_64.whl", hash = "sha256:7bc92cef6b3cf45c3f3116fdfa8e5710c5daaea046a5b9ae8dab610446fed80a"},
-    {file = "debugpy-1.6.1-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:7765ed172809ec8b82348c0f001982bb507ec6c6c6e556931ed81771c82f2cd7"},
-    {file = "debugpy-1.6.1-cp39-cp39-win32.whl", hash = "sha256:24035f4fea3163bac400237b4a0ecb0fd5dc0070b78c04a1db4716e3bda39f03"},
-    {file = "debugpy-1.6.1-cp39-cp39-win_amd64.whl", hash = "sha256:d3014ba32499f9fe932e8333d71715ed80b2dd23e60f3e3152df9faf254b1ebe"},
-    {file = "debugpy-1.6.1-py2.py3-none-any.whl", hash = "sha256:24af3e63b3124e7c5be7ae4c06e95835a7c3930989825dc4cdf43828e1a1695b"},
-    {file = "debugpy-1.6.1.zip", hash = "sha256:0262625927d81c9ee046df12a7c9429d829e28d5b744341773b6de98c607d58f"},
-]
+debugpy = []
 decorator = [
     {file = "decorator-5.1.1-py3-none-any.whl", hash = "sha256:b8c3f85900b9dc423225913c5aace94729fe1fa9763b38939a95226f02d37186"},
     {file = "decorator-5.1.1.tar.gz", hash = "sha256:637996211036b6385ef91435e4fae22989472f9d571faba8927ba8253acbc330"},
@@ -1936,9 +1916,7 @@ distlib = [
     {file = "distlib-0.3.4-py2.py3-none-any.whl", hash = "sha256:6564fe0a8f51e734df6333d08b8b94d4ea8ee6b99b5ed50613f731fd4089f34b"},
     {file = "distlib-0.3.4.zip", hash = "sha256:e4b58818180336dc9c529bfb9a0b58728ffc09ad92027a3f30b7cd91e3458579"},
 ]
-en-core-web-sm = [
-    {file = "en_core_web_sm-3.3.0-py3-none-any.whl", hash = "sha256:84d7d8059bfbf53c09b39139782f76cd6ac7064851e7799dcc685c06ebf5fd4f"},
-]
+en-core-web-sm = []
 entrypoints = [
     {file = "entrypoints-0.4-py3-none-any.whl", hash = "sha256:f174b5ff827504fd3cd97cc3f8649f3693f51538c7e4bdf3ef002c8429d42f9f"},
     {file = "entrypoints-0.4.tar.gz", hash = "sha256:b706eddaa9218a19ebcd67b56818f05bb27589b1ca9e8d797b74affad4ccacd4"},
@@ -1959,10 +1937,7 @@ flake8 = [
     {file = "flake8-4.0.1-py2.py3-none-any.whl", hash = "sha256:479b1304f72536a55948cb40a32dce8bb0ffe3501e26eaf292c7e60eb5e0428d"},
     {file = "flake8-4.0.1.tar.gz", hash = "sha256:806e034dda44114815e23c16ef92f95c91e4c71100ff52813adf7132a6ad870d"},
 ]
-fonttools = [
-    {file = "fonttools-4.34.3-py3-none-any.whl", hash = "sha256:af2e155851b226792c50a0fde950b39ae05ee5b92cc790f5c7bf5dec1e5e6eab"},
-    {file = "fonttools-4.34.3.zip", hash = "sha256:cb6eee1330423ffaa56af962aeb2b8db409dc8f98b9d8e79ea109a09d4168191"},
-]
+fonttools = []
 identify = [
     {file = "identify-2.5.1-py2.py3-none-any.whl", hash = "sha256:0dca2ea3e4381c435ef9c33ba100a78a9b40c0bab11189c7cf121f75815efeaa"},
     {file = "identify-2.5.1.tar.gz", hash = "sha256:3d11b16f3fe19f52039fb7e39c9c884b21cb1b586988114fbe42671f03de3e82"},
