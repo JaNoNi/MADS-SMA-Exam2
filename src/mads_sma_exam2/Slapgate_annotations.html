@@ -1,0 +1,80 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vis-network@latest/styles/vis-network.css" type="text/css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vis-network@latest/dist/vis-network.min.js"> </script>
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 1200px;
+            height: 600px;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"group": 0, "id": "Chris Rock", "label": "Chris Rock", "shape": "dot", "title": "Tag: Chris Rock \n Rank: 1", "value": 2816}, {"group": 1, "id": "Smith", "label": "Smith", "shape": "dot", "title": "Tag: Smith \n Rank: 2", "value": 1867}, {"group": 2, "id": "Jada", "label": "Jada", "shape": "dot", "title": "Tag: Jada \n Rank: 3", "value": 1323}, {"group": 2, "id": "Chris", "label": "Chris", "shape": "dot", "title": "Tag: Chris \n Rank: 4", "value": 1250}, {"group": 29, "id": "smith", "label": "smith", "shape": "dot", "title": "Tag: smith \n Rank: 5", "value": 194}, {"group": 1, "id": "God", "label": "God", "shape": "dot", "title": "Tag: God \n Rank: 6", "value": 183}, {"group": 4, "id": "SMITH", "label": "SMITH", "shape": "dot", "title": "Tag: SMITH \n Rank: 7", "value": 166}, {"group": 5, "id": "Jada Pinkett Smith", "label": "Jada Pinkett Smith", "shape": "dot", "title": "Tag: Jada Pinkett Smith \n Rank: 8", "value": 164}, {"group": 1, "id": "Kanye", "label": "Kanye", "shape": "dot", "title": "Tag: Kanye \n Rank: 9", "value": 163}, {"group": 9, "id": "America", "label": "America", "shape": "dot", "title": "Tag: America \n Rank: 10", "value": 139}, {"group": 7, "id": "Denzel Washington", "label": "Denzel Washington", "shape": "dot", "title": "Tag: Denzel Washington \n Rank: 11", "value": 109}, {"group": 8, "id": "Jada Pinkett", "label": "Jada Pinkett", "shape": "dot", "title": "Tag: Jada Pinkett \n Rank: 12", "value": 106}, {"group": 9, "id": "Ukraine", "label": "Ukraine", "shape": "dot", "title": "Tag: Ukraine \n Rank: 13", "value": 93}, {"group": 10, "id": "Ricky Gervais", "label": "Ricky Gervais", "shape": "dot", "title": "Tag: Ricky Gervais \n Rank: 14", "value": 88}, {"group": 1, "id": "Denzel", "label": "Denzel", "shape": "dot", "title": "Tag: Denzel \n Rank: 15", "value": 87}, {"group": 2, "id": "Hollywood", "label": "Hollywood", "shape": "dot", "title": "Tag: Hollywood \n Rank: 16", "value": 78}, {"group": 1, "id": "Oscar", "label": "Oscar", "shape": "dot", "title": "Tag: Oscar \n Rank: 17", "value": 72}, {"group": 11, "id": "King Richard", "label": "King Richard", "shape": "dot", "title": "Tag: King Richard \n Rank: 18", "value": 65}, {"group": 12, "id": "Richard Williams", "label": "Richard Williams", "shape": "dot", "title": "Tag: Richard Williams \n Rank: 19", "value": 62}, {"group": 13, "id": "Philly", "label": "Philly", "shape": "dot", "title": "Tag: Philly \n Rank: 20", "value": 57}, {"group": 14, "id": "Dave Chappelle", "label": "Dave Chappelle", "shape": "dot", "title": "Tag: Dave Chappelle \n Rank: 21", "value": 56}, {"group": 9, "id": "Trump", "label": "Trump", "shape": "dot", "title": "Tag: Trump \n Rank: 22", "value": 52}, {"group": 9, "id": "Putin", "label": "Putin", "shape": "dot", "title": "Tag: Putin \n Rank: 23", "value": 51}, {"group": 15, "id": "DENZEL WASHINGTON", "label": "DENZEL WASHINGTON", "shape": "dot", "title": "Tag: DENZEL WASHINGTON \n Rank: 24", "value": 49}, {"group": 16, "id": "Jada Smith", "label": "Jada Smith", "shape": "dot", "title": "Tag: Jada Smith \n Rank: 24", "value": 49}, {"group": 2, "id": "Bruno", "label": "Bruno", "shape": "dot", "title": "Tag: Bruno \n Rank: 26", "value": 47}, {"group": 2, "id": "Tupac", "label": "Tupac", "shape": "dot", "title": "Tag: Tupac \n Rank: 27", "value": 46}, {"group": 17, "id": "Jim Carrey", "label": "Jim Carrey", "shape": "dot", "title": "Tag: Jim Carrey \n Rank: 28", "value": 45}, {"group": 18, "id": "Muhammad Ali", "label": "Muhammad Ali", "shape": "dot", "title": "Tag: Muhammad Ali \n Rank: 29", "value": 43}, {"group": 19, "id": "Amy Schumer", "label": "Amy Schumer", "shape": "dot", "title": "Tag: Amy Schumer \n Rank: 30", "value": 36}, {"group": 20, "id": "Samsung Galaxy Tab S8", "label": "Samsung Galaxy Tab S8", "shape": "dot", "title": "Tag: Samsung Galaxy Tab S8 \n Rank: 31", "value": 34}, {"group": 21, "id": "Demi Moore", "label": "Demi Moore", "shape": "dot", "title": "Tag: Demi Moore \n Rank: 32", "value": 32}, {"group": 22, "id": "Australia", "label": "Australia", "shape": "dot", "title": "Tag: Australia \n Rank: 33", "value": 31}, {"group": 23, "id": "India", "label": "India", "shape": "dot", "title": "Tag: India \n Rank: 33", "value": 31}, {"group": 29, "id": "jada", "label": "jada", "shape": "dot", "title": "Tag: jada \n Rank: 35", "value": 30}, {"group": 24, "id": "Ricky", "label": "Ricky", "shape": "dot", "title": "Tag: Ricky \n Rank: 36", "value": 28}, {"group": 25, "id": "John Wayne", "label": "John Wayne", "shape": "dot", "title": "Tag: John Wayne \n Rank: 38", "value": 26}, {"group": 26, "id": "Harvey Weinstein", "label": "Harvey Weinstein", "shape": "dot", "title": "Tag: Harvey Weinstein \n Rank: 38", "value": 26}, {"group": 29, "id": "chris", "label": "chris", "shape": "dot", "title": "Tag: chris \n Rank: 38", "value": 26}, {"group": 27, "id": "Uncle Phil", "label": "Uncle Phil", "shape": "dot", "title": "Tag: Uncle Phil \n Rank: 40", "value": 25}, {"group": 4, "id": "CHRIS", "label": "CHRIS", "shape": "dot", "title": "Tag: CHRIS \n Rank: 41", "value": 24}, {"group": 28, "id": "Kanye West", "label": "Kanye West", "shape": "dot", "title": "Tag: Kanye West \n Rank: 41", "value": 24}, {"group": 1, "id": "Serena", "label": "Serena", "shape": "dot", "title": "Tag: Serena \n Rank: 43", "value": 23}, {"group": 9, "id": "Russia", "label": "Russia", "shape": "dot", "title": "Tag: Russia \n Rank: 43", "value": 23}, {"group": 30, "id": "GI Jane", "label": "GI Jane", "shape": "dot", "title": "Tag: GI Jane \n Rank: 45", "value": 22}, {"group": 2, "id": "Jesus", "label": "Jesus", "shape": "dot", "title": "Tag: Jesus \n Rank: 45", "value": 22}, {"group": 31, "id": "Mel Gibson", "label": "Mel Gibson", "shape": "dot", "title": "Tag: Mel Gibson \n Rank: 47", "value": 20}, {"group": 32, "id": "Roman Polanski", "label": "Roman Polanski", "shape": "dot", "title": "Tag: Roman Polanski \n Rank: 49", "value": 19}, {"group": 33, "id": "Taylor Swift", "label": "Taylor Swift", "shape": "dot", "title": "Tag: Taylor Swift \n Rank: 49", "value": 19}, {"group": 34, "id": "Woody Allen", "label": "Woody Allen", "shape": "dot", "title": "Tag: Woody Allen \n Rank: 49", "value": 19}, {"group": 35, "id": "Jason Momoa", "label": "Jason Momoa", "shape": "dot", "title": "Tag: Jason Momoa \n Rank: 49", "value": 19}, {"group": 36, "id": "Mr. Smith", "label": "Mr. Smith", "shape": "dot", "title": "Tag: Mr. Smith \n Rank: 52", "value": 18}, {"group": 37, "id": "Kevin Hart", "label": "Kevin Hart", "shape": "dot", "title": "Tag: Kevin Hart \n Rank: 52", "value": 18}, {"group": 38, "id": "Beyonc\u00e9", "label": "Beyonc\u00e9", "shape": "dot", "title": "Tag: Beyonc\u00e9 \n Rank: 55", "value": 17}, {"group": 9, "id": "Biden", "label": "Biden", "shape": "dot", "title": "Tag: Biden \n Rank: 55", "value": 17}, {"group": 39, "id": "Ted Cruz", "label": "Ted Cruz", "shape": "dot", "title": "Tag: Ted Cruz \n Rank: 55", "value": 17}, {"group": 2, "id": "Jaden", "label": "Jaden", "shape": "dot", "title": "Tag: Jaden \n Rank: 55", "value": 17}, {"group": 40, "id": "Will Smith", "label": "Will Smith", "shape": "dot", "title": "Tag: Will Smith \n Rank: 58", "value": 16}, {"group": 41, "id": "Harrison", "label": "Harrison", "shape": "dot", "title": "Tag: Harrison \n Rank: 58", "value": 16}, {"group": 1, "id": "Ali", "label": "Ali", "shape": "dot", "title": "Tag: Ali \n Rank: 60", "value": 15}, {"group": 42, "id": "Donald Trump", "label": "Donald Trump", "shape": "dot", "title": "Tag: Donald Trump \n Rank: 60", "value": 15}, {"group": 9, "id": "Weinstein", "label": "Weinstein", "shape": "dot", "title": "Tag: Weinstein \n Rank: 63", "value": 14}, {"group": 1, "id": "Beyonce", "label": "Beyonce", "shape": "dot", "title": "Tag: Beyonce \n Rank: 63", "value": 14}, {"group": 43, "id": "Chris Rick", "label": "Chris Rick", "shape": "dot", "title": "Tag: Chris Rick \n Rank: 63", "value": 14}, {"group": 44, "id": "Mike Tyson", "label": "Mike Tyson", "shape": "dot", "title": "Tag: Mike Tyson \n Rank: 63", "value": 14}, {"group": 1, "id": "Venus", "label": "Venus", "shape": "dot", "title": "Tag: Venus \n Rank: 69", "value": 13}, {"group": 9, "id": "CNN", "label": "CNN", "shape": "dot", "title": "Tag: CNN \n Rank: 69", "value": 13}, {"group": 45, "id": "Mr Smith", "label": "Mr Smith", "shape": "dot", "title": "Tag: Mr Smith \n Rank: 69", "value": 13}, {"group": 1, "id": "Richard", "label": "Richard", "shape": "dot", "title": "Tag: Richard \n Rank: 69", "value": 13}, {"group": 46, "id": "Alec Baldwin", "label": "Alec Baldwin", "shape": "dot", "title": "Tag: Alec Baldwin \n Rank: 69", "value": 13}, {"group": 6, "id": "Jessica Chastain", "label": "Jessica Chastain", "shape": "dot", "title": "Tag: Jessica Chastain \n Rank: 69", "value": 13}, {"group": 1, "id": "UK", "label": "UK", "shape": "dot", "title": "Tag: UK \n Rank: 69", "value": 13}, {"group": 3, "id": "Tyler Perry", "label": "Tyler Perry", "shape": "dot", "title": "Tag: Tyler Perry \n Rank: 69", "value": 13}]);
+        edges = new vis.DataSet([{"from": "Chris", "to": "Jada", "weight": 503}, {"from": "Smith", "to": "Jada", "weight": 193}, {"from": "Jada", "to": "Jada", "weight": 83}, {"from": "Chris", "to": "Chris", "weight": 219}, {"from": "Smith", "to": "Chris", "weight": 552}, {"from": "Smith", "to": "Smith", "weight": 116}, {"from": "Chris", "to": "smith", "weight": 33}, {"from": "chris", "to": "smith", "weight": 5}, {"from": "Chris", "to": "Denzel", "weight": 17}, {"from": "Smith", "to": "Denzel", "weight": 25}, {"from": "Jada", "to": "Denzel", "weight": 9}, {"from": "Richard", "to": "Denzel", "weight": 3}, {"from": "Chris", "to": "Ricky", "weight": 16}, {"from": "Smith", "to": "Ricky", "weight": 2}, {"from": "Jada", "to": "Ricky", "weight": 2}, {"from": "Ricky", "to": "Ricky", "weight": 4}, {"from": "Chris", "to": "Richard", "weight": 16}, {"from": "Smith", "to": "Richard", "weight": 12}, {"from": "Jada", "to": "Richard", "weight": 1}, {"from": "Richard", "to": "Richard", "weight": 1}, {"from": "smith", "to": "Richard", "weight": 2}, {"from": "Chris", "to": "Ali", "weight": 14}, {"from": "Smith", "to": "Ali", "weight": 7}, {"from": "Richard", "to": "Ali", "weight": 2}, {"from": "Oscar", "to": "Ali", "weight": 1}, {"from": "Chris", "to": "Ukraine", "weight": 11}, {"from": "Smith", "to": "Ukraine", "weight": 6}, {"from": "Putin", "to": "Ukraine", "weight": 4}, {"from": "Biden", "to": "Ukraine", "weight": 1}, {"from": "Chris", "to": "Oscar", "weight": 10}, {"from": "Smith", "to": "Oscar", "weight": 12}, {"from": "Chris", "to": "God", "weight": 10}, {"from": "Smith", "to": "God", "weight": 12}, {"from": "God", "to": "God", "weight": 12}, {"from": "Chris", "to": "Jaden", "weight": 8}, {"from": "Smith", "to": "Jaden", "weight": 2}, {"from": "Jada", "to": "Jaden", "weight": 4}, {"from": "Putin", "to": "Jaden", "weight": 1}, {"from": "Jaden", "to": "Jaden", "weight": 1}, {"from": "Smith", "to": "Kanye", "weight": 20}, {"from": "Chris", "to": "Jesus", "weight": 6}, {"from": "Smith", "to": "Jesus", "weight": 2}, {"from": "Chris", "to": "Trump", "weight": 6}, {"from": "Trump", "to": "America", "weight": 4}, {"from": "Chris", "to": "Hollywood", "weight": 4}, {"from": "Chris", "to": "Venus", "weight": 4}, {"from": "Smith", "to": "Venus", "weight": 3}, {"from": "Richard", "to": "Venus", "weight": 2}, {"from": "Serena", "to": "Venus", "weight": 9}, {"from": "Chris", "to": "jada", "weight": 3}, {"from": "Smith", "to": "jada", "weight": 2}, {"from": "smith", "to": "jada", "weight": 2}, {"from": "Chris", "to": "Putin", "weight": 3}, {"from": "Smith", "to": "Putin", "weight": 3}, {"from": "Biden", "to": "Putin", "weight": 4}, {"from": "Chris", "to": "Russia", "weight": 3}, {"from": "Ukraine", "to": "Russia", "weight": 9}, {"from": "Putin", "to": "Russia", "weight": 2}, {"from": "Biden", "to": "Russia", "weight": 2}, {"from": "Chris", "to": "Tupac", "weight": 3}, {"from": "Smith", "to": "Tupac", "weight": 5}, {"from": "Jada", "to": "Tupac", "weight": 13}, {"from": "Chris", "to": "Beyonc\u00e9", "weight": 2}, {"from": "Beyonc\u00e9", "to": "Beyonc\u00e9", "weight": 1}, {"from": "Jada", "to": "Bruno", "weight": 21}, {"from": "Chris", "to": "Weinstein", "weight": 2}, {"from": "Jada", "to": "Weinstein", "weight": 1}, {"from": "Trump", "to": "Weinstein", "weight": 1}, {"from": "Oscar", "to": "Weinstein", "weight": 3}, {"from": "America", "to": "Weinstein", "weight": 1}, {"from": "Chris", "to": "CNN", "weight": 2}, {"from": "Trump", "to": "CNN", "weight": 7}, {"from": "America", "to": "CNN", "weight": 1}, {"from": "CNN", "to": "CNN", "weight": 1}, {"from": "SMITH", "to": "CHRIS", "weight": 2}, {"from": "Smith", "to": "Serena", "weight": 2}, {"from": "Richard", "to": "Serena", "weight": 7}, {"from": "Chris", "to": "Biden", "weight": 1}, {"from": "Jada", "to": "Biden", "weight": 1}, {"from": "God", "to": "Biden", "weight": 1}, {"from": "Trump", "to": "Biden", "weight": 1}, {"from": "America", "to": "Biden", "weight": 2}, {"from": "Smith", "to": "UK", "weight": 2}, {"from": "UK", "to": "UK", "weight": 1}, {"from": "Smith", "to": "Beyonce", "weight": 1}, {"from": "Jada", "to": "Beyonce", "weight": 1}, {"from": "Kanye", "to": "Beyonce", "weight": 1}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {"physics": {"maxVelocity": 10, "minVelocity": 0.75}, "nodes": {"font": {"size": 30}}};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+	 
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>
