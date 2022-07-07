@@ -1,3 +1,3 @@
 # Social Media Analytics
 
-## Portfolio examination Part 2 (Due date 30.06.2022)
+## Portfolio examination Part 2 (Due date 07.07.2022)
